@@ -7,7 +7,13 @@ end
 
 # Part II
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  if s.empty? #if string is empty, return false
+  	return false
+  elsif (s[0].downcase =~ /[a-z]/ && s[0].downcase =~ /[^aeiou]/) #if first letter a through z AND not aeiou, return true
+    return true
+  else
+    return false
+  end
 end
 
 # Part III
