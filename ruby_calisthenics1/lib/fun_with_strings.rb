@@ -29,28 +29,23 @@ module FunWithStrings
   
 
   def anagram_groups
-    input = self.split
-output = Array.new
-input.each_with_index do |str, index|
-unless output.any? { |arr| arr.include?(str) }
-str_array = Array.new
-str_array.push(str)
-input[index+1..-1].each do |str2|
-if str.is_anagram(str2)
-str_array.push(str2)
-end
-end
-output.push(str_array)
-end
-end
-output
+    words = self.split
+    result = Array.new
+    words.each_with_index do |s, index|
+      unless result.any? { |arr| arr.include?(s) }
+        str_arr = Array.new
+        str_arr.push(s)
+          words[index+1..-1].each do |str2|
+            if (words[index].downcase.chars.sort.join == str2.downcase.chars.sort.join)
+              str_arr.push(str2)
+            end
+          end
+        result.push(str_arr)
+      end
+    end
+    result
   end
-
-def is_anagram(str)
-self.downcase.chars.sort.join == str.downcase.chars.sort.join
 end
-end
-
 # make all the above functions available as instance methods on Strings:
 
 class String
