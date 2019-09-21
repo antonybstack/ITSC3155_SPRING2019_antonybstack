@@ -52,4 +52,11 @@ class JellyBean < Dessert
   def name=(name_)
     @name = name_
   end
+  def delicious?
+    if(self.flavor == 'licorice')
+      return false
+    end  
+    return true
+    
+  end
 end
