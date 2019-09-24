@@ -8,6 +8,10 @@ class BookInStock
         end
         @isbn = isbn;
         @price = price;
+
     end
-    
+    def price_as_string
+        p = sprintf('%.2f', self.price);
+       return "$#{p}";
+    end
 end
